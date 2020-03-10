@@ -48,29 +48,33 @@ int main () {
         switch( opc ){
             case 'a':
             case 'm':
-            D_Out2 = Reg[arg2];
-            std::cout << "d: Set D_Out2 to " << D_Out2 << ".\n";
-            dest = arg3;
-            std::cout << "d: Set dest to f" << dest << ".\n";
-            break;
-            ...
+                D_Out2 = Reg[arg2];
+                std::cout << "d: Set D_Out2 to " << D_Out2 << ".\n";
+                dest = arg3;
+                std::cout << "d: Set dest to f" << dest << ".\n";
+                break;
+            //...
+            case 'l':
+                
+            case 's':
         }
 
         // x-box
         int X_Out;
         switch( opc ) {
-            ...
+            //...
+            
         }
 
         // m-box
         int M_Out;
         switch( opc ) {
-            ...
+            //...
         }
 
         // w-box
         switch( opc ){
-            ...
+            //...
         }
 
         std::cout << "\n";
