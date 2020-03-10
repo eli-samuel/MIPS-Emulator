@@ -38,7 +38,7 @@ int D_Out1 = Reg[arg1];                 // Reg[1] = 100
 switch( opc ){                          // opcode will be 'l' in this case  
     case 'a':                           // case for addition (same as multiplication)  
     case 'm':                           // case for multiplication  
-        D_Out2 = Reg[arg2];             // l.d    __r2__  f6  [-24]  
+        D_Out2 = Reg[arg2];             // l.d  r2  f6  [-24] <-- D_Out2 = immediate    
         dest = arg3;                    // destination register (l.d    r2  __f6__  [-24])  
         break;  
     // need to add more cases for load and store  
@@ -70,18 +70,21 @@ switch( opc ){
 }  
   
 __What the loop values will look like__  <br>
-_PC      0      1       2       3       4       5      6_  <br>
-_head_    l     l       m       a <br>
-_tail_    124   348     246     468 <br>
-_opc_     l     l       m       a <br>
-_arg3_    4     8       6       8 <br>
-_arg2_    2     4       4       6 <br>
-_arg1_    1     3       2       4 <br>
-_D_Out1_  100   200     17      41 <br>
-_D_Out2_  4     8       41      697 <br>
-_dest_    2     4       6       8 <br>
-_X_out_   104   208     697     738 <br>
-_M_out_   17    41      no-op   no-op <br>
-
-
+  
+__PC      0      1       2       3       4       5__  <br>
+_head_    l     l       m       a       s       s<br>
+_tail_    124   348     246     468     368     584<br>
+_opc_     l     l       m       a       s       s<br>
+_arg3_    4     8       6       8       8       4<br>
+_arg2_    2     4       4       6       6       8<br>
+_arg1_    1     3       2       4       3       5<br>
+_D_Out1_  100   200     17      41      200     300<br>
+_D_Out2_  4     8       41      697     8       4<br>
+_dest_    2     4       6       8       .       .<br>
+_X_out_   104   208     697     738     208     304<br>
+_M_out_   17    41      no-op   no-op           <br>
+_vlStored_                              697     738<br>
+  
+  
 __for 'm' or 'a'__: opcode rs rt rd (operand 1, operand 2, destination) <br>
+__for 's'__ s.d r2 f6 24 (s.d f6,24(r2)) <br>
