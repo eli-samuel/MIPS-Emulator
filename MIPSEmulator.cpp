@@ -55,7 +55,6 @@ int main () {
                 break;
             //...
             case 'l':
-                
             case 's':
         }
 
@@ -63,18 +62,29 @@ int main () {
         int X_Out;
         switch( opc ) {
             //...
-            
+            case 'a':
+            case 'm':
+            case 'l':
+            case 's':
         }
 
         // m-box
         int M_Out;
         switch( opc ) {
             //...
+            case 'a':
+            case 'm':
+            case 'l':
+            case 's':
         }
 
         // w-box
         switch( opc ){
             //...
+            case 'a':
+            case 'm':
+            case 'l':
+            case 's':
         }
 
         std::cout << "\n";
