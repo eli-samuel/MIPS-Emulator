@@ -34,49 +34,49 @@ int arg1 = tail;                        // arg1 = 1
 
 int D_Out1 = Reg[arg1];                 // Reg[1] = 100
 
-# switch-case statement
-switch( opc ){                          // opcode will be 'l' in this case
-    case 'a':                           // case for addition (same as multiplication)
-    case 'm':                           // case for multiplication
-        D_Out2 = Reg[arg2];             // l.d    __r2__  f6  [-24]
-        dest = arg3;                    // destination register (l.d    r2  __f6__  [-24])
-        break;
-    // need to add more cases for load and store
-}
+# switch-case statement  
+switch( opc ){                          // opcode will be 'l' in this case  
+    case 'a':                           // case for addition (same as multiplication)  
+    case 'm':                           // case for multiplication  
+        D_Out2 = Reg[arg2];             // l.d    __r2__  f6  [-24]  
+        dest = arg3;                    // destination register (l.d    r2  __f6__  [-24])  
+        break;  
+    // need to add more cases for load and store  
+}  
 
-// x-box --> do the addition/multipication
-int X_Out;
-switch( opc ) {
-    //...
-    case 'l':
-        // add 100 + 4
-}
+// x-box --> do the addition/multipication  
+int X_Out;  
+switch( opc ) {  
+    //...  
+    case 'l':  
+        // add 100 + 4  
+}  
 
-// m-box
-int M_Out;
-switch( opc ) {
-    //...
-    case 'l':
-        // go to memory location 104 and set M_Out to that (17)
-}
+// m-box  
+int M_Out;  
+switch( opc ) {  
+    //...  
+    case 'l':  
+        // go to memory location 104 and set M_Out to that (17)  
+}  
 
-// w-box
-switch( opc ){
-    //...
-    case 'l':
-        // write 17 to Reg[2]
-}
+// w-box  
+switch( opc ){  
+    //...  
+    case 'l':  
+        // write 17 to Reg[2]  
+}  
 
 __What the loop values will look like__
-_PC      0   1   2   3   4   5   6_  
-_head_    l   l  
-_tail_    124 348
-_opc_     l   l
-_arg3_    4   8
-_arg2_    2   4
-_arg1_    1   3
-_D_Out1_  100 200
-_D_Out2_  4   8
-_dest_    2   4
-_X_out_   104 208
-_M_out_   17  41
+_PC      0      1       2       3       4       5      6_  
+_head_    l     l       m
+_tail_    124   348  
+_opc_     l     l  
+_arg3_    4     8  
+_arg2_    2     4  
+_arg1_    1     3  
+_D_Out1_  100   200  
+_D_Out2_  4     8  
+_dest_    2     4  
+_X_out_   104   208  
+_M_out_   17    41  
