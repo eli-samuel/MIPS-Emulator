@@ -68,15 +68,15 @@ switch( opc ){
 }
 
 __What the loop values will look like__
-_PC      0   1   2   3   4   5   6_ \n
-_head_    l   l\n
-_tail_    124 348\n
-_opc_     l   l\n
-_arg3_    4   8\n
-_arg2_    2   4\n
-_arg1_    1   3\n
-_D_Out1_  100 200\n
-_D_Out2_  4   8\n
-_dest_    2   4\n
-_X_out_   104 208\n
-_M_out_   17  41\n
+_PC      0   1   2   3   4   5   6_  
+_head_    l   l  
+_tail_    124 348
+_opc_     l   l
+_arg3_    4   8
+_arg2_    2   4
+_arg1_    1   3
+_D_Out1_  100 200
+_D_Out2_  4   8
+_dest_    2   4
+_X_out_   104 208
+_M_out_   17  41
