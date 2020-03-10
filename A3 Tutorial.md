@@ -70,18 +70,18 @@ switch( opc ){
 }  
   
 __What the loop values will look like__  <br>
-_PC      0      1       2       3       4       5      6_  
-_head_    l     l       m
-_tail_    124   348     246
-_opc_     l     l       m
-_arg3_    4     8       6
-_arg2_    2     4       4
-_arg1_    1     3       2
-_D_Out1_  100   200     17
-_D_Out2_  4     8       41
-_dest_    2     4       6
-_X_out_   104   208     697
-_M_out_   17    41      no-op
+_PC      0      1       2       3       4       5      6_  <br>
+_head_    l     l       m       a <br>
+_tail_    124   348     246     468 <br>
+_opc_     l     l       m       a <br>
+_arg3_    4     8       6       8 <br>
+_arg2_    2     4       4       6 <br>
+_arg1_    1     3       2       4 <br>
+_D_Out1_  100   200     17      41 <br>
+_D_Out2_  4     8       41      697 <br>
+_dest_    2     4       6       8 <br>
+_X_out_   104   208     697     738 <br>
+_M_out_   17    41      no-op   no-op <br>
 
 
-__for 'm'__: opcode rs rt rd
+__for 'm' or 'a'__: opcode rs rt rd (operand 1, operand 2, destination) <br>
