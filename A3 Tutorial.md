@@ -67,7 +67,7 @@ switch( opc ){
         // write 17 to Reg[2]  
 }  
   
-__What the loop values will look like__
+__What the loop values will look like__  
 _PC      0      1       2       3       4       5      6_  
 _head_    l     l       m
 _tail_    124   348     246
@@ -75,8 +75,8 @@ _opc_     l     l       m
 _arg3_    4     8       6
 _arg2_    2     4       4
 _arg1_    1     3       2
-_D_Out1_  100   200     
-_D_Out2_  4     8  
+_D_Out1_  100   200     17
+_D_Out2_  4     8       
 _dest_    2     4  
 _X_out_   104   208  
 _M_out_   17    41  
