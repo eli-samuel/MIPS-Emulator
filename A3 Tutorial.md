@@ -44,7 +44,7 @@ switch( opc ){                          // opcode will be 'l' in this case
     // need to add more cases for load and store  
 }  
   
-// x-box --> do the addition/multipication  
+## x-box --> do the addition/multipication  
 int X_Out;  
 switch( opc ) {  
     //...  
@@ -52,7 +52,7 @@ switch( opc ) {
         // add 100 + 4  
 }  
   
-// m-box  
+## m-box  
 int M_Out;  
 switch( opc ) {  
     //...  
@@ -60,7 +60,7 @@ switch( opc ) {
         // go to memory location 104 and set M_Out to that (17)  
 }  
   
-// w-box  
+## w-box  
 switch( opc ){  
     //...  
     case 'l':  
@@ -70,12 +70,12 @@ switch( opc ){
 __What the loop values will look like__
 _PC      0      1       2       3       4       5      6_  
 _head_    l     l       m
-_tail_    124   348  
-_opc_     l     l  
-_arg3_    4     8  
-_arg2_    2     4  
-_arg1_    1     3  
-_D_Out1_  100   200  
+_tail_    124   348     246
+_opc_     l     l       m
+_arg3_    4     8       6
+_arg2_    2     4       4
+_arg1_    1     3       2
+_D_Out1_  100   200     
 _D_Out2_  4     8  
 _dest_    2     4  
 _X_out_   104   208  
