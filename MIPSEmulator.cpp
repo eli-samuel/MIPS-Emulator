@@ -53,38 +53,72 @@ int main () {
                 dest = arg3;
                 std::cout << "d: Set dest to f" << dest << ".\n";
                 break;
-            //...
             case 'l':
+                // find D_Out2 and dest
+                D_Out2 = arg3;
+                std::cout << "d: Set D_Out2 to " << D_Out2 << ".\n";
+                dest = arg2;
+                std::cout << "d: Set dest to f" << dest << ".\n";
+                break;
             case 's':
+                // find D_Out2 and dest
+                D_Out2 = arg3;
+                std::cout << "d: Set D_Out2 to " << D_Out2 << ".\n";
+                std::cout << "d: Did not set dest.\n";
+                break;
         }
 
         // x-box
         int X_Out;
         switch( opc ) {
-            //...
             case 'a':
-            case 'm':
             case 'l':
             case 's':
+                X_Out = D_Out1 + D_Out2;
+                std::cout << "x: Set X_Out to " << X_Out << ".\n";
+                break;
+            case 'm':
+                X_Out = D_Out1 * D_Out2;
+                std::cout << "x: Set X_Out to " << X_Out << ".\n";
+                break;
         }
 
         // m-box
         int M_Out;
         switch( opc ) {
-            //...
             case 'a':
             case 'm':
+                std::cout << "m: M-box does no-op. \n";
+                break;
             case 'l':
+                M_Out = Mem[X_Out];
+                std::cout << "m: Set M_Out to " << M_Out << ".\n";
+                break;
             case 's':
+                //M_Out = value to store; this is what im confuzzled abt
+                //aaaaaa
+                //aaaaaa
+                M_Out = Reg[arg2];
+                value_to_store = M_Out;
+                // or just value_to_store = Reg[arg2];
+                std::cout << "m: Set value_to_store to " << value_to_store << ".\n";
+                break;
         }
 
         // w-box
         switch( opc ){
-            //...
             case 'a':
             case 'm':
+                Reg[dest] = X_Out;
+                std::cout << "w. Set f" << dest << " to " << Reg[dest] << ".\n";
+                break;
             case 'l':
+                Reg[dest] = M_Out;
+                std::cout << "w. Set f" << dest << " to " << Reg[dest] << ".\n";
+                break;
             case 's':
+                std::cout << "w: W-box does no-op. \n";
+                break;
         }
 
         std::cout << "\n";
@@ -99,8 +133,51 @@ d: Set D_Out2 to 4.
 d: Set dest to f2.
 x: Set X_Out to 104.
 m: Set M_Out to 17.
-w: Set f2 to 17.
+w. Set f2 to 17.
 
-...
+f: Fetched l#348.
+d: Set opc to 'l'.
+d: Set D_Out1 to 200.
+d: Set D_Out2 to 8.
+d: Set dest to f4.
+x: Set X_Out to 208.
+m: Set M_Out to 41.
+w. Set f4 to 41.
+
+f: Fetched m#246.
+d: Set opc to 'm'.
+d: Set D_Out1 to 17.
+d: Set D_Out2 to 41.
+d: Set dest to f6.
+x: Set X_Out to 697.
+m: M-box does no-op.
+w. Set f6 to 697.
+
+f: Fetched a#468.
+d: Set opc to 'a'.
+d: Set D_Out1 to 41.
+d: Set D_Out2 to 697.
+d: Set dest to f8.
+x: Set X_Out to 738.
+m: M-box does no-op.
+w. Set f8 to 738.
+
+f: Fetched s#368.
+d: Set opc to 's'.
+d: Set D_Out1 to 200.
+d: Set D_Out2 to 8.
+d: Did not set dest.
+x: Set X_Out to 208.
+m: Set value_to_store to 697.
+w: W-box does no-op.
+
+f: Fetched s#584.
+d: Set opc to 's'.
+d: Set D_Out1 to 300.
+d: Set D_Out2 to 4.
+d: Did not set dest.
+x: Set X_Out to 304.
+m: Set value_to_store to 738.
+w: W-box does no-op.
 
 */
